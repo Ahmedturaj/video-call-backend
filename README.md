@@ -1,6 +1,121 @@
-# Boilerplate Web Node.js TypeScript
+# 🎥 WebRTC Video Calling & Screen Sharing App
 
-A robust and scalable Node.js backend boilerplate built with TypeScript, Express, and MongoDB. This project provides a solid foundation for building web applications with authentication, file uploads, real-time features, and more.
+A full-stack real-time communication platform inspired by Zoom, built using modern web technologies. This application enables seamless peer-to-peer video calling, screen sharing, and real-time messaging with a scalable modular architecture.
+
+---
+
+## 🚀 Features
+
+* 🔴 Real-time video calling (WebRTC)
+* 🧑‍🤝‍🧑 Multi-user video grid (mesh-based)
+* 🖥️ Screen sharing (dynamic track switching)
+* 💬 Live chat messaging (Socket.IO)
+* 📁 Peer-to-peer file sharing (DataChannel)
+* 🎥 Media recording support
+* 🔌 STUN/TURN server integration for NAT traversal
+* 👤 User presence (join/leave detection)
+* 🧠 Type-safe signaling with TypeScript
+* 📱 Responsive UI (Tailwind CSS)
+
+---
+
+## 🏗️ Tech Stack
+
+### Frontend
+
+* Next.js (App Router)
+* TypeScript
+* Tailwind CSS
+* WebRTC APIs
+
+### Backend
+
+* Node.js
+* Express.js
+* Socket.IO
+* MongoDB + Mongoose
+
+### Real-Time Communication
+
+* WebRTC (P2P media streaming)
+* Socket.IO (signaling layer)
+
+---
+
+## ⚙️ Architecture
+
+* Modular backend structure (controller/service pattern)
+* Dedicated signaling server for WebRTC handshake
+* Peer-to-peer mesh network for media exchange
+* Centralized socket event contracts (TypeScript interfaces)
+
+---
+
+## 🔄 WebRTC Flow
+
+1. User joins a room via unique Room ID
+2. Socket.IO establishes signaling connection
+3. Peers exchange SDP (offer/answer)
+4. ICE candidates are shared for connectivity
+5. Direct P2P media stream is established
+6. Users can switch between camera and screen in real-time
+
+---
+
+## 🧪 Local Setup
+
+### Backend
+
+```bash
+cd videocall-backend
+npm install
+npm run dev
+```
+
+### Frontend
+
+```bash
+cd videocall-frontend
+npm install
+npm run dev
+```
+
+Open: http://localhost:3000
+
+---
+
+## 🌐 Environment Variables
+
+* STUN server (Google STUN)
+* TURN server (for restricted networks)
+* MongoDB connection string
+
+---
+
+## ⚠️ Limitations
+
+* Uses mesh topology → performance degrades with many users
+* Recommended for small group calls (2–6 users)
+* For large-scale systems, an SFU (e.g., mediasoup) is required
+
+---
+
+## 🔮 Future Improvements
+
+* SFU integration (mediasoup)
+* Authentication & role-based access
+* Meeting scheduling system
+* Cloud recording storage (AWS S3)
+* Production-grade TURN server setup
+
+---
+
+## 📌 Summary
+
+This project demonstrates a deep understanding of real-time systems, WebRTC internals, and scalable full-stack architecture using TypeScript.
+
+---
+
 
 ## 🚀 Features
 
@@ -108,6 +223,7 @@ npm run prettier:fix  # Fix formatting issues
 ```
 src/
 ├── app/
+|   ├──socket/           # Socket.io setup
 │   ├── config/          # Environment configuration
 │   ├── error/           # Error handling utilities
 │   ├── middlewares/     # Custom middleware
