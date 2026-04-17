@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { userRoutes } from '../modules/user/user.routes';
 import { authRoutes } from '../modules/auth/auth.routes';
-import { RoomRoutes } from '../modules/room/room.routes';
+import communityRouter from '../modules/community/community.routes';
 
 const router = Router();
 
@@ -15,9 +15,10 @@ const moduleRoutes = [
     route: authRoutes,
   },
   {
-    path: '/room',
-    route: RoomRoutes,
+    path: '/community',
+    route: communityRouter,
   },
+  
 ];
 
 moduleRoutes.forEach((route) => router.use(route.path, route.route));
